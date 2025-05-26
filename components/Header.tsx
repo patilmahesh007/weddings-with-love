@@ -26,20 +26,26 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  // Determine text color based on scroll
+  const textClass = isScrolled
+    ? "text-gray-900 hover:text-gray-600"
+    : "text-black hover:text-gray-200"
+
+  const iconClass = isScrolled ? "text-gray-600 hover:text-gray-900" : "text-black hover:text-gray-200"
+  const logoClass = isScrolled ? "text-gray-900" : "text-black"
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm" : "bg-transparent"
+        isScrolled
+          ? "bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm"
+          : "bg-transparent"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
-            <span
-              className={`font-playfair text-3xl font-bold tracking-tight transition-colors duration-300 ${
-                isScrolled ? "text-gray-900" : "text-white"
-              }`}
-            >
+            <span className={`font-playfair text-3xl font-bold tracking-tight transition-colors duration-300 ${logoClass}`}>
               HOTC
             </span>
           </Link>
@@ -50,9 +56,7 @@ export default function Header() {
             variant="ghost"
             size="icon"
             onClick={() => setMobileMenuOpen(true)}
-            className={`-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 transition-colors ${
-              isScrolled ? "text-gray-700" : "text-white"
-            }`}
+            className={`-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 transition-colors ${iconClass}`}
           >
             <Menu className="h-6 w-6" aria-hidden="true" />
           </Button>
@@ -63,9 +67,7 @@ export default function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className={`text-sm font-medium leading-6 transition-colors ${
-                isScrolled ? "text-gray-900 hover:text-gray-600" : "text-white hover:text-gray-200"
-              }`}
+              className={`text-sm font-medium leading-6 transition-colors ${textClass}`}
             >
               {item.name}
             </Link>
@@ -74,28 +76,13 @@ export default function Header() {
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-4">
           <div className="flex items-center gap-3">
-            <Link
-              href="#"
-              className={`transition-colors ${
-                isScrolled ? "text-gray-600 hover:text-gray-900" : "text-white hover:text-gray-200"
-              }`}
-            >
+            <Link href="#" className={iconClass}>
               <Instagram className="h-5 w-5" />
             </Link>
-            <Link
-              href="#"
-              className={`transition-colors ${
-                isScrolled ? "text-gray-600 hover:text-gray-900" : "text-white hover:text-gray-200"
-              }`}
-            >
+            <Link href="#" className={iconClass}>
               <Facebook className="h-5 w-5" />
             </Link>
-            <Link
-              href="#"
-              className={`transition-colors ${
-                isScrolled ? "text-gray-600 hover:text-gray-900" : "text-white hover:text-gray-200"
-              }`}
-            >
+            <Link href="#" className={iconClass}>
               <Twitter className="h-5 w-5" />
             </Link>
           </div>

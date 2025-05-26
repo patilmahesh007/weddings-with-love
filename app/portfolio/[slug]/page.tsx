@@ -1,56 +1,47 @@
-'use client';
+'use client'
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { useParams } from 'next/navigation';
-import Gallery from 'react-photo-gallery';
-import { portfolioData } from '@/config/portfolios';
+import { useState, useEffect } from 'react'
+import { useParams } from 'next/navigation'
+import Gallery from 'react-photo-gallery'
+import { portfolioData } from '@/config/portfolios'
 
 const AudioPlayer = ({ audioSrc }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [audio, setAudio] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [audio, setAudio] = useState(null)
 
   useEffect(() => {
-    if (!audioSrc) return;
+    if (!audioSrc) return
 
-    const audioElement = new Audio(audioSrc);
-    audioElement.loop = false;
-    setAudio(audioElement);
+    const audioElement = new Audio(audioSrc)
+    audioElement.loop = false
+    setAudio(audioElement)
 
     const playAudio = async () => {
       try {
-        await audioElement.play();
-        setIsPlaying(true);
-      } catch (error) {
-        console.warn('Autoplay blocked:', error);
-        setIsPlaying(false);
+        await audioElement.play()
+        setIsPlaying(true)
+      } catch {
+        setIsPlaying(false)
       }
-    };
+    }
 
-    playAudio();
-
-    const onEnded = () => setIsPlaying(false);
-    audioElement.addEventListener('ended', onEnded);
+    playAudio()
+    audioElement.addEventListener('ended', () => setIsPlaying(false))
 
     return () => {
-      audioElement.pause();
-      audioElement.removeEventListener('ended', onEnded);
-    };
-  }, [audioSrc]);
+      audioElement.pause()
+      audioElement.removeEventListener('ended', () => {})
+    }
+  }, [audioSrc])
 
   const togglePlay = () => {
-    if (!audio) return;
+    if (!audio) return
+    if (isPlaying) audio.pause()
+    else audio.play()
+    setIsPlaying(!isPlaying)
+  }
 
-    if (isPlaying) {
-      audio.pause();
-      setIsPlaying(false);
-    } else {
-      audio.play();
-      setIsPlaying(true);
-    }
-  };
-
-  if (!audioSrc) return null;
+  if (!audioSrc) return null
 
   return (
     <div className="flex items-center justify-center space-x-4 bg-white/80 backdrop-blur-sm rounded-full px-8 py-4 shadow-lg border border-stone-200/50">
@@ -61,11 +52,11 @@ const AudioPlayer = ({ audioSrc }) => {
       >
         {isPlaying ? (
           <div className="flex space-x-1">
-            <div className="w-1 h-4 bg-white"></div>
-            <div className="w-1 h-4 bg-white"></div>
+            <div className="w-1 h-4 bg-white" />
+            <div className="w-1 h-4 bg-white" />
           </div>
         ) : (
-          <div className="w-0 h-0 border-l-4 border-l-white border-t-2 border-t-transparent border-b-2 border-b-transparent ml-1"></div>
+          <div className="w-0 h-0 border-l-4 border-l-white border-t-2 border-t-transparent border-b-2 border-b-transparent ml-1" />
         )}
       </button>
       <div className="text-stone-700">
@@ -73,31 +64,36 @@ const AudioPlayer = ({ audioSrc }) => {
         <p className="text-xs text-stone-500">Isabelle Adjani</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default function WeddingPortfolioPage() {
-  const params = useParams();
-  const { slug } = params || {};
-
-  const portfolio = portfolioData.portfolios.find((p) => p.slug === slug);
+  const { slug } = useParams()
+  const portfolio = portfolioData.portfolios.find((p) => p.slug === slug)
 
   if (!portfolio) {
     return (
       <div className="min-h-screen bg-stone-50 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-light text-stone-800 mb-4">Wedding Not Found</h1>
-          <p className="text-stone-600">The wedding portfolio you're looking for doesn't exist.</p>
+          <p className="text-stone-600">The wedding portfolio you're looking for doesn’t exist.</p>
         </div>
       </div>
-    );
+    )
   }
 
-  const photos = portfolio.images.map((img) =>
-    typeof img === 'string'
-      ? { src: img, width: 4, height: 3 }
-      : { src: img.src, width: img.width, height: img.height }
-  );
+  const photos = portfolio.images.map((img) => {
+    if (typeof img === 'string') {
+      return { src: img, width: 4, height: 3 }
+    }
+    const w = Number(img.width)
+    const h = Number(img.height)
+    return {
+      src: img.src,
+      width: Number.isFinite(w) ? w : 4,
+      height: Number.isFinite(h) ? h : 3,
+    }
+  })
 
   return (
     <div className="min-h-screen bg-stone-50">
@@ -105,7 +101,7 @@ export default function WeddingPortfolioPage() {
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
 
         .couple-name {
-          font-family: 'Playfair Display', 'Crimson Text', 'Cormorant Garamond', serif;
+          font-family: 'Playfair Display', serif;
           font-weight: 400;
           letter-spacing: 0.02em;
         }
@@ -118,11 +114,14 @@ export default function WeddingPortfolioPage() {
       <div className="max-w-4xl mx-auto px-4 py-20">
         {/* Couple Names */}
         <div className="text-center mb-16">
-          <h1 className="couple-name text-6xl md:text-7xl text-stone-700 mb-12 tracking-wide">
+          <h1 className="couple-name text-6xl md:text-7xl text-stone-700 mb-4 tracking-wide">
             {portfolio.title}
           </h1>
-
-          <div className="text-stone-600 elegant-text text-lg max-w-md mx-auto">
+          <div className="text-stone-600 elegant-text text-center">
+            <p className="text-xl md:text-2xl font-medium mb-1">{portfolio.location}</p>
+            <p className="text-lg md:text-xl font-light">{portfolio.weddingDate}</p>
+          </div>
+          <div className="text-stone-600 elegant-text text-lg max-w-md mx-auto mt-6">
             {Object.entries(portfolio.credits).map(([role, name]) => (
               <p key={role} className="leading-relaxed">
                 <span className="font-medium capitalize">
@@ -142,9 +141,7 @@ export default function WeddingPortfolioPage() {
                     ? 'Flowers'
                     : role.replace(/([A-Z])/g, ' $1')}
                 </span>{' '}
-                <span className="underline cursor-pointer hover:text-stone-800 transition-colors">
-                  {name}
-                </span>
+                <span className="underline cursor-pointer hover:text-stone-800 transition-colors">{name}</span>
               </p>
             ))}
           </div>
@@ -161,11 +158,7 @@ export default function WeddingPortfolioPage() {
         </div>
 
         {/* Footer Info */}
-        <div className="text-center text-stone-600 elegant-text">
-          <p className="text-lg mb-2">{portfolio.location}</p>
-          <p className="text-sm">{portfolio.weddingDate}</p>
-        </div>
       </div>
     </div>
-  );
+  )
 }
