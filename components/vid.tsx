@@ -2,7 +2,15 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { Play, Pause, Volume2, VolumeX, Expand } from "lucide-react";
-import { videoData, VideoItem } from "@/config/vidData";
+
+interface VideoItem {
+  id: number;
+  title: string;
+  subtitle: string;
+  location?: string;
+  thumbnail: string;
+  videoUrl: string;
+}
 
 export default function VideoPortfolio() {
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
@@ -11,10 +19,53 @@ export default function VideoPortfolio() {
   const [volume, setVolume] = useState<Record<number, number>>({});
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
+  const videos: VideoItem[] = [
+    {
+      id: 1,
+      title: "TAMANNA&DAN",
+      subtitle: "HOUSE ON THE CLOUDS",
+      thumbnail:
+        "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
+      videoUrl:
+        "https://res.cloudinary.com/dtrrsp1ll/video/upload/v1748237060/r8wnchcskyfocqv5f0pt.mp4",
+    },
+    {
+      id: 2,
+      title: "ALISHA&RAHUL",
+      subtitle: "Amalfi Coast, Italy",
+      location: "HOUSE ON THE CLOUDS",
+      thumbnail:
+        "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&h=600&fit=crop",
+      videoUrl:
+        "https://res.cloudinary.com/dtrrsp1ll/video/upload/v1748237060/r8wnchcskyfocqv5f0pt.mp4",
+    },
+    {
+      id: 3,
+      title: "SID SALONI",
+      subtitle: "Trailer // Bangkok",
+      location: "House on the Clouds",
+      thumbnail:
+        "https://images.unsplash.com/photo-1516475080664-ed2fc6a32937?w=800&h=600&fit=crop",
+      videoUrl:
+        "https://res.cloudinary.com/dtrrsp1ll/video/upload/v1748237060/r8wnchcskyfocqv5f0pt.mp4",
+    },
+    {
+      id: 4,
+      title: "ZINA&ZAIN",
+      subtitle: "",
+      location: "HOUSE ON THE CLOUDS",
+      thumbnail:
+        "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop",
+      videoUrl:
+        "https://res.cloudinary.com/dtrrsp1ll/video/upload/v1748237060/r8wnchcskyfocqv5f0pt.mp4",
+    },
+  ];
+
+  // Setup timeupdate listeners once videos refs are ready
   useEffect(() => {
     const listeners: (() => void)[] = [];
 
-    videoData.forEach((video, idx) => {
+    videos.forEach((video, idx) => {
       const vid = videoRefs.current[idx];
       if (!vid) return;
 
@@ -24,7 +75,6 @@ export default function VideoPortfolio() {
           setProgress((prev) => ({ ...prev, [video.id]: percent }));
         }
       };
-
       vid.addEventListener("timeupdate", onTimeUpdate);
       listeners.push(() => vid.removeEventListener("timeupdate", onTimeUpdate));
     });
@@ -32,7 +82,7 @@ export default function VideoPortfolio() {
     return () => {
       listeners.forEach((remove) => remove());
     };
-  }, []);
+  }, [videos]);
 
   const initializeVideo = (videoId: number, index: number) => {
     videoRefs.current.forEach((vid, idx) => {
@@ -70,7 +120,7 @@ export default function VideoPortfolio() {
     const isMuted = mutedVideos[videoId] ?? false;
     setMutedVideos((prev) => ({ ...prev, [videoId]: !isMuted }));
 
-    const index = videoData.findIndex((v) => v.id === videoId);
+    const index = videos.findIndex((v) => v.id === videoId);
     const vid = videoRefs.current[index];
     if (vid) vid.muted = !isMuted;
   };
@@ -93,13 +143,14 @@ export default function VideoPortfolio() {
   return (
     <div className="min-h-screen bg-[#f5f1eb] p-4 sm:p-8">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {videoData.map((video, idx) => {
+        {videos.map((video, idx) => {
           const isPlaying = playingVideo === video.id;
           return (
             <div
               key={video.id}
               className="relative group rounded-lg overflow-hidden cursor-pointer"
             >
+              {/* Background thumbnail shown only if video is NOT playing */}
               {!isPlaying && (
                 <div
                   className="relative w-full h-60 sm:h-80 md:h-96 bg-cover bg-center"
@@ -124,6 +175,7 @@ export default function VideoPortfolio() {
                 </div>
               )}
 
+              {/* Video element always rendered but hidden if not playing */}
               <video
                 ref={(el) => (videoRefs.current[idx] = el)}
                 className={`w-full h-60 sm:h-80 md:h-96 object-cover ${
@@ -136,6 +188,7 @@ export default function VideoPortfolio() {
                 src={video.videoUrl}
               />
 
+              {/* Controls overlay only visible when playing or on hover */}
               <div
                 className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 transition-opacity duration-300 ${
                   isPlaying ? "opacity-100" : "opacity-0 group-hover:opacity-100"

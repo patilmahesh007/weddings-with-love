@@ -5,6 +5,7 @@ import Services from "@/components/Services"
 import ContactSection from "@/components/ContactSection"
 import { siteData } from "@/config/siteData"
 import WeddingGallery from "@/components/WeddingGallery"
+import Vid from "@/components/vid"
 export default function HomePage() {
   return (
     <div className="min-h-screen">
@@ -16,8 +17,8 @@ export default function HomePage() {
       />
       <About data={siteData.about} />
       <WeddingGallery />
-
       <FeaturedWork data={siteData.featuredWork} />
+      <Vid />
       <Services data={siteData.services} />
       <ContactSection data={siteData.contact} />
     </div>

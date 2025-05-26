@@ -2,12 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { portfolioData } from "@/config/portfolios";
-
+import Header from "@/components/Header";
 export default function FeaturedWork() {
   const { title, subtitle, portfolios } = portfolioData;
 
   return (
     <section className="py-20 bg-[#fdf5ec]">
+      
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-playfair text-4xl md:text-5xl font-light mb-4">
