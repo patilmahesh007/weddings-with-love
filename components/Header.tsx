@@ -7,9 +7,7 @@ import { Button } from "@/components/ui/button"
 
 const navigation = [
   { name: "Photography", href: "/photography" },
-  { name: "Films", href: "/films" },
   { name: "Contact Us", href: "/contact" },
-  { name: "Vines", href: "/vines" },
 ]
 
 export default function Header() {
@@ -46,7 +44,7 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className={`font-playfair text-3xl font-bold tracking-tight transition-colors duration-300 ${logoClass}`}>
-              HOTC
+              WWL
             </span>
           </Link>
         </div>

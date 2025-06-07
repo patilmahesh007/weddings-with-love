@@ -1,28 +1,28 @@
 // Main site data configuration
 // Replace these URLs with actual images from houseontheclouds.com
-
+import hero from "@/public/hero.jpg"
+import leftImage from "@/public/top1.jpg"
+import rightImage from "@/public/top2.jpg"
 export const siteData = {
   // Hero section data
   hero: {
-    mainImage:
-      "https://sjc.microlink.io/k5gntBoYZIYhKOPy534rgiX0Yy0I7Kx3A_37rNC3L1ATbL2n2YjnpP_bel7CoM0cSEjE5YtuTsQMnpCWdGbOWg.jpeg", // Using the provided couple image
+    mainImage: hero,
     alt: "Elegant couple portrait in black and white",
-    title: "House on the Clouds",
+    title: "Weddings with love",
     subtitle: "Capturing Life's Most Beautiful Moments",
   },
 
   // About section data
   about: {
-    title: "A MODERN APPROACH",
+    title: "Where MODERN AESTHETICS",
     subtitle: "to an AGE OLD TRADITION",
     description: [
-      "Considered to be the epitome of Modern Photography and Filmmaking, HOTC has transformed the Indian Wedding landscape on a regular basis. For almost a decade House On The Clouds has been creating photographs and films which are timeless and have been etched in memories of thousands of people forever.",
-      "Awarded as the Wedding Filmmaker of the year for four consecutive years at the Weddingsutra awards along with numerous other awards HOTC is the only company listed on IMDB for its award winning films.",
+      "𝖶𝖶𝖫 𝗂𝗌 𝖼𝖾𝗅𝖾𝖻𝗋𝖺𝗍𝖾𝖽 𝖿𝗈𝗋 𝗂𝗍𝗌 𝗆𝗈𝖽𝖾𝗋𝗇, 𝖺𝗋𝗍𝗂𝗌𝗍𝗂𝖼 𝖺𝗉𝗉𝗋𝗈𝖺𝖼𝗁 𝗍𝗈 𝗐𝖾𝖽𝖽𝗂𝗇𝗀 𝗉𝗁𝗈𝗍𝗈𝗀𝗋𝖺𝗉𝗁𝗒 𝖺𝗇𝖽 𝖿𝗂𝗅𝗆𝗆𝖺𝗄𝗂𝗇𝗀, 𝗍𝗋𝖺𝗇𝗌𝖿𝗈𝗋𝗆𝗂𝗇𝗀 𝖾𝖺𝖼𝗁 𝖾𝗏𝖾𝗇𝗍 𝗂𝗇𝗍𝗈 𝖺 𝖼𝖺𝗉𝗍𝗂𝗏𝖺𝗍𝗂𝗇𝗀 𝗏𝗂𝗌𝗎𝖺𝗅 𝗌𝗍𝗈𝗋𝗒. 𝖥𝗈𝗋 𝗇𝖾𝖺𝗋𝗅𝗒 𝖺 𝖽𝖾𝖼𝖺𝖽𝖾, 𝖶𝖾𝖽𝖽𝗂𝗇𝗀𝗌 𝖶𝗂𝗍𝗁 𝖫𝗈𝗏𝖾 𝗁𝖺𝗌 𝖻𝖾𝖾𝗇 𝖼𝗋𝖺𝖿𝗍𝗂𝗇𝗀 𝗎𝗇𝖿𝗈𝗋𝗀𝖾𝗍𝗍𝖺𝖻𝗅𝖾 𝗂𝗆𝖺𝗀𝖾𝗌 𝖺𝗇𝖽 𝖿𝗂𝗅𝗆𝗌 𝗍𝗁𝖺𝗍 𝗋𝖾𝗌𝗈𝗇𝖺𝗍𝖾 𝖽𝖾𝖾𝗉𝗅𝗒, 𝗍𝗎𝗋𝗇𝗂𝗇𝗀 𝖿𝗅𝖾𝖾𝗍𝗂𝗇𝗀 𝗆𝗈𝗆𝖾𝗇𝗍𝗌 𝗂𝗇𝗍𝗈 𝗅𝗂𝖿𝖾𝗅𝗈𝗇𝗀 𝗆𝖾𝗆𝗈𝗋𝗂𝖾𝗌 𝖿𝗈𝗋 𝖼𝗈𝗎𝗇𝗍𝗅𝖾𝗌𝗌 𝖼𝗈𝗎𝗉𝗅𝖾𝗌",
+      "𝖱𝖾𝗇𝗈𝗐𝗇𝖾𝖽 𝖿𝗈𝗋 𝗂𝗍𝗌 𝗋𝖾𝖿𝗂𝗇𝖾𝖽 𝖾𝗒𝖾 𝖺𝗇𝖽 𝗂𝗇𝗍𝗎𝗂𝗍𝗂𝗏𝖾 𝗌𝖾𝗇𝗌𝖾 𝗈𝖿 𝗌𝗍𝗒𝗅𝖾, 𝖶𝖶𝖫 𝗈𝖿𝖿𝖾𝗋𝗌 𝖺𝗇 𝖾𝗑𝗉𝖾𝗋𝗂𝖾𝗇𝖼𝖾 𝗍𝗁𝖺𝗍 𝗂𝗌 𝖺𝗌 𝖾𝗅𝖾𝗀𝖺𝗇𝗍 𝖺𝗌 𝗂𝗍 𝗂𝗌 𝗆𝖾𝗆𝗈𝗋𝖺𝖻𝗅𝖾 — 𝖺 𝗍𝗋𝗎𝗌𝗍𝖾𝖽 𝗉𝖺𝗋𝗍𝗇𝖾𝗋 𝖿𝗈𝗋 𝖼𝗈𝗎𝗉𝗅𝖾𝗌 𝗌𝖾𝖾𝗄𝗂𝗇𝗀 𝗍𝗈 𝗉𝗋𝖾𝗌𝖾𝗋𝗏𝖾 𝗍𝗁𝖾 𝖾𝗌𝗌𝖾𝗇𝖼𝖾 𝗈𝖿 𝗍𝗁𝖾𝗂𝗋 𝗐𝖾𝖽𝖽𝗂𝗇𝗀 𝖽𝖺𝗒 𝗂𝗇 𝗍𝗂𝗆𝖾𝗅𝖾𝗌𝗌 𝖽𝖾𝗍𝖺𝗂𝗅.",
     ],
-    leftImage:
-      "https://images.squarespace-cdn.com/content/v1/60b40cb3dd6dc9347755b5ab/1db82b11-0d5e-446f-bfef-3bee15ed4f8a/P1+small.jpg?format=750w",
-    rightImage:
-      "https://images.squarespace-cdn.com/content/v1/60b40cb3dd6dc9347755b5ab/306b3c30-8166-4514-82d9-1c1263929d2c/0H1A4354+%281%29+small.jpg?format=750w",
+    leftImage: leftImage
+    ,
+    rightImage: rightImage,
   },
 
   // Featured work section

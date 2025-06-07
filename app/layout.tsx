@@ -17,7 +17,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "HOTC",
+  title: "WWL",
   description: "Photography, Films, and Creative Content",
     generator: 'v0.dev'
 }

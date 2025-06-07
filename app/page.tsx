@@ -18,7 +18,7 @@ export default function HomePage() {
       <About data={siteData.about} />
       <WeddingGallery />
       <FeaturedWork data={siteData.featuredWork} />
-      <Vid />
+      {/* <Vid /> */}
       <Services data={siteData.services} />
       <ContactSection data={siteData.contact} />
     </div>
