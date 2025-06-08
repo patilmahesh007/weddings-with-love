@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
+import Image from 'next/image'
 import { portfolioData } from '@/config/portfolios'
 
 const AudioPlayer = ({ audioSrc }) => {
@@ -138,20 +139,28 @@ export default function WeddingPortfolioPage() {
           <AudioPlayer audioSrc={portfolio.audio} />
         </div>
 
-        {/* Gallery (Structured Layout) */}
-        {/* Gallery (Masonry-like layout) */}
-<div className="columns-1 md:columns-2 gap-4 mb-16">
-  {portfolio.images.map((img, index) => (
-    <div key={index} className="mb-4 break-inside-avoid overflow-hidden rounded-lg shadow-md border border-stone-200">
-      <img
-        src={typeof img === 'string' ? img : img.src}
-        alt={`Wedding photo ${index + 1}`}
-        className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
-      />
-    </div>
-  ))}
-</div>
-
+        {/* Gallery (Optimized with Next.js <Image />) */}
+        <div className="columns-1 md:columns-2 gap-4 mb-16">
+          {portfolio.images.map((img, index) => {
+            const src = typeof img === 'string' ? img : img.src
+            return (
+              <div
+                key={index}
+                className="mb-4 break-inside-avoid overflow-hidden rounded-lg shadow-md border border-stone-200"
+              >
+                <Image
+                  src={src}
+                  alt={`Wedding photo ${index + 1}`}
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
+                  priority={index < 2} // load first 2 images eagerly for better LCP
+                  loading={index < 2 ? 'eager' : 'lazy'}
+                />
+              </div>
+            )
+          })}
+        </div>
       </div>
     </div>
   )
