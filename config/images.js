@@ -6,13 +6,13 @@ export const images = {
   photography: {
     gallery: [
       {
-        src: "/placeholder.svg?height=600&width=600",
+        src: "https://res.cloudinary.com/dtrrsp1ll/image/upload/v1749372524/MORU4874_payg8a.jpg",
         alt: "Bride and groom first dance",
         title: "First Dance",
         category: "Wedding",
       },
       {
-        src: "/placeholder.svg?height=600&width=600",
+        src: "https://res.cloudinary.com/dtrrsp1ll/image/upload/v1749372524/MORU4874_payg8a.jpg",
         alt: "Wedding ceremony in garden",
         title: "Garden Ceremony",
         category: "Wedding",

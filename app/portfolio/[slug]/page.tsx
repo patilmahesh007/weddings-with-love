@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
-import Gallery from 'react-photo-gallery'
 import { portfolioData } from '@/config/portfolios'
 
 const AudioPlayer = ({ audioSrc }) => {
@@ -82,19 +81,6 @@ export default function WeddingPortfolioPage() {
     )
   }
 
-  const photos = portfolio.images.map((img) => {
-    if (typeof img === 'string') {
-      return { src: img, width: 4, height: 3 }
-    }
-    const w = Number(img.width)
-    const h = Number(img.height)
-    return {
-      src: img.src,
-      width: Number.isFinite(w) ? w : 4,
-      height: Number.isFinite(h) ? h : 3,
-    }
-  })
-
   return (
     <div className="min-h-screen bg-stone-50">
       <style jsx global>{`
@@ -152,12 +138,20 @@ export default function WeddingPortfolioPage() {
           <AudioPlayer audioSrc={portfolio.audio} />
         </div>
 
-        {/* Gallery */}
-        <div className="mb-16">
-          <Gallery photos={photos} direction="row" />
-        </div>
+        {/* Gallery (Structured Layout) */}
+        {/* Gallery (Masonry-like layout) */}
+<div className="columns-1 md:columns-2 gap-4 mb-16">
+  {portfolio.images.map((img, index) => (
+    <div key={index} className="mb-4 break-inside-avoid overflow-hidden rounded-lg shadow-md border border-stone-200">
+      <img
+        src={typeof img === 'string' ? img : img.src}
+        alt={`Wedding photo ${index + 1}`}
+        className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
+      />
+    </div>
+  ))}
+</div>
 
-        {/* Footer Info */}
       </div>
     </div>
   )

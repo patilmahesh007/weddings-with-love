@@ -9,10 +9,10 @@ export default function FeaturedWork() {
     portfolios: [
       {
         id: "1",
-        title: "Reva & Zach",
+        title: "Aachal & Vedant",
         category: "Oct 7, 2024",
-        image: "https://images.squarespace-cdn.com/content/v1/60b40cb3dd6dc9347755b5ab/1728309731397-7SX5RFVHER5BFEH3P790/LONA2136+9090.jpg?format=500w",
-        slug: "reva-and-zach",
+        image: "https://res.cloudinary.com/dtrrsp1ll/image/upload/v1749372524/MORU4874_payg8a.jpg",
+        slug: "Aachal-and-Vedant",
       },
       {
         id: "2",
