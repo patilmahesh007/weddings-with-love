@@ -6,7 +6,7 @@ import { Menu, X, Instagram, Facebook, Twitter } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navigation = [
-  { name: "Photography", href: "/photography" },
+  { name: "Galery", href: "/galery" },
   { name: "Contact Us", href: "/contact" },
 ]
 
@@ -77,15 +77,15 @@ export default function Header() {
             <Link href="#" className={iconClass}>
               <Instagram className="h-5 w-5" />
             </Link>
-            <Link href="#" className={iconClass}>
+            {/* <Link href="#" className={iconClass}>
               <Facebook className="h-5 w-5" />
             </Link>
             <Link href="#" className={iconClass}>
               <Twitter className="h-5 w-5" />
-            </Link>
+            </Link> */}
           </div>
           <Button asChild className="ml-4 bg-amber-700 hover:bg-amber-800 text-white px-6 py-2">
-            <Link href="/contact">Get In Touch</Link>
+            <Link href="/contact">Contact Us</Link>
           </Button>
         </div>
       </nav>

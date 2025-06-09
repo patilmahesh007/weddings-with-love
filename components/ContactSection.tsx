@@ -60,8 +60,21 @@ export default function ContactSection({ data }: ContactSectionProps) {
 
         <div className="text-center">
           <Button asChild size="lg" className="bg-amber-700 hover:bg-amber-800">
-            <Link href="/contact">Get In Touch</Link>
+            <Link href="/contact">Contact Us</Link>
           </Button>
+
+          <div className="mt-8 text-sm text-gray-400">
+            © Copyright reserved by{" "}
+            <a
+              href="https://www.shrishtiwebsolutions.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-white transition-colors"
+            >
+              ShrishtiWebSolutions.com
+            </a>{" "}
+            {new Date().getFullYear()}
+          </div>
         </div>
       </div>
     </section>

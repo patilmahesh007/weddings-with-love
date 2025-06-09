@@ -1,5 +1,3 @@
-// Image configuration - organized by page/section for easy management
-// Replace these URLs with actual images from houseontheclouds.com
 
 export const images = {
   // Photography gallery - Wedding Photography

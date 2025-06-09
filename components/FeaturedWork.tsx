@@ -11,29 +11,29 @@ export default function FeaturedWork() {
         id: "1",
         title: "Aachal & Vedant",
         category: "Oct 7, 2024",
-        image: "https://res.cloudinary.com/dtrrsp1ll/image/upload/v1749372524/MORU4874_payg8a.jpg",
+        image: "https://res.cloudinary.com/dtrrsp1ll/image/upload/v1749402574/MORU4874_pmk0au.jpg",
         slug: "Aachal-and-Vedant",
       },
       {
         id: "2",
-        title: "Ayush & Meera",
+        title: "Sakshi & Arjun",
         category: "Sep 15, 2024",
-        image: "https://images.squarespace-cdn.com/content/v1/60b40cb3dd6dc9347755b5ab/1728985824718-ASSAMHEN4GRU7U6EE26K/AYUS2602+last.jpg?format=1000w",
-        slug: "ayush-and-meera",
+        image: "https://res.cloudinary.com/dtrrsp1ll/image/upload/v1749414064/GKP_6885_iscjod.jpg",
+        slug: "Sakshi-and-Arjun",
       },
       {
         id: "3",
-        title: "Aisha & Kabir",
+        title: "Sakshi & Ishaan",
         category: "May 19, 2024",
-        image: "https://images.squarespace-cdn.com/content/v1/60b40cb3dd6dc9347755b5ab/1670478908751-2XMF94Y8YGB1BMS4VIIP/SHOW647.JPG?format=750w",
-        slug: "aisha-and-kabir",
+        image: "https://res.cloudinary.com/dtrrsp1ll/image/upload/v1749414011/ADTY7033_h59pid.jpg",
+        slug: "Sakshi-and-Ishaan",
       },
       {
         id: "4",
-        title: "Sana & Arjun",
+        title: "Atharva & Krisha",
         category: "Jan 2, 2024",
-        image: "https://images.squarespace-cdn.com/content/v1/60b40cb3dd6dc9347755b5ab/1713905479101-NIWTKQZ1SS3GP47ZYF0Y/001+copy+2.jpg?format=750w",
-        slug: "sana-and-arjun",
+        image: "https://res.cloudinary.com/dtrrsp1ll/image/upload/v1749414031/YCM_4228_bdm556.jpg",
+        slug: "Atharva-and-Krisha",
       },
     ],
   };
@@ -62,8 +62,8 @@ export default function FeaturedWork() {
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
               </div>
               <div className="text-left px-2">
-                <h3 className="font-playfair text-lg font-medium mb-1">{portfolio.title}</h3>
-                <p className="text-sm text-gray-600">{portfolio.category}</p>
+                <h3 className="text-lg font-medium mb-1">{portfolio.title}</h3>
+                {/* <p className="text-sm text-gray-600">{portfolio.category}</p> */}
               </div>
             </Link>
           ))}
@@ -71,7 +71,7 @@ export default function FeaturedWork() {
 
         <div className="text-center">
           <Button asChild variant="outline" size="lg">
-            <Link href="/photography">Photography Blog</Link>
+            <Link href="/galery">View Galery</Link>
           </Button>
         </div>
       </div>

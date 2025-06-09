@@ -1,5 +1,4 @@
-import leftImage from "@/public/top1.jpg"
-import rightImage from "@/public/top2.jpg"
+
 export const siteData = {
   // Hero section data
   hero: {
@@ -105,12 +104,12 @@ export const siteData = {
     title: "Let's Create Something Beautiful",
     subtitle:
       "Ready to capture your special moments? We'd love to hear from you and discuss how we can bring your vision to life.",
-    email: "hello@houseontheclouds.com",
-    phone: "+1 (555) 123-4567",
+    email: "hello@weddingswithlove.com",
+    phone: "+91 88500 24109",
     social: {
-      instagram: "https://instagram.com/houseontheclouds",
-      facebook: "https://facebook.com/houseontheclouds",
-      twitter: "https://twitter.com/houseontheclouds",
+      instagram: "https://instagram.com/weddings_with_love__",
+      facebook: "https://facebook.com",
+      twitter: "https://twitter.com",
     },
   },
 }
