@@ -18,6 +18,11 @@ export default function WeddingPortfolioPage() {
     audioElement.loop = false
     setAudio(audioElement)
 
+    // Play audio automatically on load
+    audioElement.play()
+      .then(() => setIsPlaying(true))
+      .catch(() => setIsPlaying(false)) // Autoplay might fail in some browsers
+
     audioElement.addEventListener('ended', () => setIsPlaying(false))
 
     return () => {
