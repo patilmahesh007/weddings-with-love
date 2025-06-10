@@ -6,7 +6,7 @@ import { Menu, X, Instagram, Facebook, Twitter } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navigation = [
-  { name: "Gallery", href: "/galery" },
+  { name: "Gallery", href: "/gallery" },
   { name: "Contact Us", href: "/contact" },
 ]
 

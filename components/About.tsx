@@ -18,7 +18,7 @@ export default function About({ data }: AboutProps) {
           {/* Header - positioned higher and more centered */}
           <div className="text-center mb-12 md:mb-16">
             <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal leading-tight tracking-wider text-gray-900">
-              𝓌𝑒𝓇𝑒 𝑀𝑜𝒹𝑒𝓇𝓃 𝒜𝓈𝓉𝒽𝑒𝓉𝒾𝒸𝓈        </h2>
+                𝓌𝔥𝑒𝓇𝑒 𝑀𝑜𝒹𝑒𝓇𝓃 𝒜𝓈𝓉𝒽𝑒𝓉𝒾𝒸𝓈       </h2>
             <p className="font-playfair text-xl md:text-2xl lg:text-3xl xl:text-3xl font-light italic mt-1 tracking-wider text-gray-900">
               𝔪𝔢𝔢𝔱𝔰  𝒯𝒾𝓂𝑒𝓁𝑒𝓈𝓈 𝒯𝓇𝒶𝒹𝒾𝓉𝒾𝑜𝓃𝓈
             </p>

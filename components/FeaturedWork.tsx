@@ -71,7 +71,7 @@ export default function FeaturedWork() {
 
         <div className="text-center">
           <Button asChild variant="outline" size="lg">
-            <Link href="/galery">View Galery</Link>
+            <Link href="/gallery">View Gallery</Link>
           </Button>
         </div>
       </div>
