@@ -6,7 +6,7 @@ import { Menu, X, Instagram, Facebook, Twitter } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navigation = [
-  { name: "Galery", href: "/galery" },
+  { name: "Gallery", href: "/galery" },
   { name: "Contact Us", href: "/contact" },
 ]
 
@@ -136,8 +136,7 @@ export default function Header() {
                   </div>
                   <Button asChild className="w-full bg-amber-700 hover:bg-amber-800 text-white">
                     <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                      Get In Touch
-                    </Link>
+contact us                    </Link>
                   </Button>
                 </div>
               </div>
